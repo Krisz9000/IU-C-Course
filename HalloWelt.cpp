@@ -2,10 +2,41 @@
 //
 
 #include <iostream>
+namespace consoleInput {
+	void input() {
+		std::string input;
+		std::cout << "Please enter something: ";
+		std::cin >> input;
+		std::cout << "Your input was: " << input << "\n";
+	}
+}
+
+namespace calculateBaseOperations {
+	void calculate(int n1, int n2) {
+		int sum = n1 + n2;
+		int diff = n1 - n2;
+		int prod = n1 * n2;
+		int quot = n1 / n2;
+		int mod = n1 % n2;
+
+		std::cout << "Sum of " << n1 << " and " << n2 << " is: " << sum << "\n";
+		std::cout << "Difference of " << n1 << " and " << n2 << " is: " << diff << "\n";
+		std::cout << "Product of " << n1 << " and " << n2 << " is: " << prod << "\n";
+		std::cout << "Quotiance of " << n1 << " and " << n2 << " is: " << quot << "\n";
+		std::cout << "Modulo of " << n1 << " and " << n2 << " is: " << mod << "\n";
+	}
+}
 
 int main()
 {
     std::cout << "Hello World!\n";
+	consoleInput::input();
+
+	// TODO Implement calculateBaseOperations
+	// TODO Implement Manual Input
+	int n1 = 1;
+	int n2 = 2;
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
