@@ -10,6 +10,55 @@ namespace consoleInput {
 		std::cin >> input;
 		std::cout << "Your input was: " << input << "\n";
 	}
+
+	void translateNumberToWord() {
+		while (true) {
+			char c;
+			std::cout << "Please enter a number between [0 and 9]:\n";
+			std::cin >> c;
+			if (cin.fail()) {
+				cin.clear(); // clear the error flag
+				cin.ignore(numeric_limits<streamsize>::max(), '\n'); // discard invalid input
+				cout << c << " -> End of Program.\n";
+				return; // end the loop and return to menu
+			}
+			switch (c) {
+			case '0':
+				cout << c << " -> Zero\n";
+				break;
+			case '1':
+				cout << c << " -> One\n";
+				break;
+			case '2':
+				cout << c << " -> Two\n";
+				break;
+			case '3':
+				cout << c << " -> Three\n";
+				break;
+			case '4':
+				cout << c << " -> Four\n";
+				break;
+			case '5':
+				cout << c << " -> Five\n";
+				break;
+			case '6':
+				cout << c << " -> Six\n";
+				break;
+			case '7':
+				cout << c << " -> Seven\n";
+				break;
+			case '8':
+				cout << c << " -> Eight\n";
+				break;
+			case '9':
+				cout << c << " -> Nine\n";
+				break;
+			default:
+				cout << c << " - End of program\n";
+				return;
+			}
+		}
+	}
 }
 
 namespace calculateBaseOperations {
@@ -96,6 +145,7 @@ int main()
 		cout << "3. Hello World\n";
 		cout << "4. Loops\n";
 		cout << "5. Dividable by 2 or 3\n";
+		cout << "6. Translate Numbers to Words\n";
 		int mode;
 		cin >> mode;
 		switch (mode) {
@@ -116,6 +166,9 @@ int main()
 			break;
 		case 5:
 			calculateBaseOperations::dividableBy2or3();
+			break;
+		case 6:
+			consoleInput::translateNumberToWord();
 			break;
 		default:
 			cout << "Invalid mode has been selected, please try again!\n";
