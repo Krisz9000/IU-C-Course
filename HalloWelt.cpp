@@ -26,6 +26,36 @@ namespace calculateBaseOperations {
 		std::cout << "Quotiance of " << n1 << " and " << n2 << " is: " << quot << "\n";
 		std::cout << "Modulo of " << n1 << " and " << n2 << " is: " << mod << "\n";
 	}
+
+	bool isDividableBy2(int n) {
+		return (n % 2 == 0 ? true : false);
+	}
+
+	bool isDividableBy3(int n) {
+		return (n % 3 == 0 ? true : false);
+	}
+
+	void dividableBy2or3() {
+		for (int i = 1; i < 11; ++i) {
+			switch (isDividableBy2(i)) {
+			case true:
+				std::cout << i << " is dividable by 2 ";
+				break;
+			case false:
+				std::cout << i << " is not dividable by 2 ";
+				break;
+			}
+			switch (isDividableBy3(i)) {
+			case true:
+				cout << "and is dividable by 3";
+				break;
+			case false:
+				cout << "and is not dividable by 3";
+				break;
+			}
+			std::cout << "\n";
+		}
+	}
 }
 namespace loops {
 	void listingWithLoops() {
@@ -65,6 +95,7 @@ int main()
 		cout << "2. Manual Input\n";
 		cout << "3. Hello World\n";
 		cout << "4. Loops\n";
+		cout << "5. Dividable by 2 or 3\n";
 		int mode;
 		cin >> mode;
 		switch (mode) {
@@ -82,6 +113,9 @@ int main()
 			break;
 		case 4:
 			loops::listingWithLoops();
+			break;
+		case 5:
+			calculateBaseOperations::dividableBy2or3();
 			break;
 		default:
 			cout << "Invalid mode has been selected, please try again!\n";
