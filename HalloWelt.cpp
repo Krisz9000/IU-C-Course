@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+using namespace std;
 namespace consoleInput {
 	void input() {
 		std::string input;
@@ -26,17 +27,66 @@ namespace calculateBaseOperations {
 		std::cout << "Modulo of " << n1 << " and " << n2 << " is: " << mod << "\n";
 	}
 }
+namespace loops {
+	void listingWithLoops() {
+		int j(1);
+		int k(1);
+		int l(1);
+		for (int i = 1; i < 6; ++i) std::cout << i << " ";
+		std::cout << "\n";
+		while (j < 6) {
+			std::cout << j << " ";
+			++j;
+		}
+		std::cout << "\n";
+		do {
+			std::cout << k << " ";
+			++k;
+		} while (k < 6);
+		std::cout << "\n";
+	gotoLoop:
+		if (l < 6) {
+			std::cout << l << " ";
+			++l;
+			goto gotoLoop;
+		}
+		cout << "\n";
+	}
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
-	consoleInput::input();
-
-	// TODO Implement calculateBaseOperations
-	// TODO Implement Manual Input
-	int n1 = 1;
-	int n2 = 2;
-
+	do {
+		int n1(5);
+		int n2(10);
+		cout << "Please choose program mode, enter the number:\n";
+		cout << "0. Exit\n";
+		cout << "1. Calculate Base Operations\n";
+		cout << "2. Manual Input\n";
+		cout << "3. Hello World\n";
+		cout << "4. Loops\n";
+		int mode;
+		cin >> mode;
+		switch (mode) {
+		case 0:
+			cout << "Exiting program...\n";
+			return 0;
+		case 1:
+			calculateBaseOperations::calculate(n1, n2);
+			break;
+		case 2:
+			consoleInput::input();
+			break;
+		case 3:
+			std::cout << "Hello World!\n";
+			break;
+		case 4:
+			loops::listingWithLoops();
+			break;
+		default:
+			cout << "Invalid mode has been selected, please try again!\n";
+		}
+	} while (true);
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
